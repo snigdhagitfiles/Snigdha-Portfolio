@@ -153,22 +153,13 @@
   .output-grid .thumb{ aspect-ratio:1; }
 
   /* Output: mixed gallery layout */
-  .output-gallery{
+  .output-row{
     display:grid;
-    grid-template-columns:1.3fr 1fr;
-    grid-template-rows:1fr 1fr;
+    grid-template-columns:1fr 1fr;
     gap:16px;
   }
-  .gallery-hero{
-    grid-row:1 / 3;
-    aspect-ratio:16/11;
-  }
-  .gallery-side{
-    aspect-ratio:1;
-  }
   @media (max-width:680px){
-    .output-gallery{ grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
-    .gallery-hero{ grid-column:1 / -1; grid-row:auto; aspect-ratio:4/3; }
+    .output-row{ grid-template-columns:1fr; }
   }
 
   .wrap-up{
@@ -248,30 +239,37 @@
   </section>
 
   <section>
-    <h2>Process</h2>
-    <p class="section-note">The team built around a single mascot — a leaf character — designed to soften the tone of mood-tracking and make daily check-ins feel approachable rather than clinical. A small interaction detail: the leaf shifts pose on cursor hover, giving the mascot a bit of life wherever it appears in the UI.</p>
-    <div class="thumb" style="aspect-ratio:16/9;padding:0;overflow:hidden;background:#1a1a1a;">
-      <img src="image/leaflink_mascot.png" alt="Leaf Link mascot character exploration, showing hover state poses" style="width:100%;height:100%;object-fit:contain;">
+    <h2>Final output</h2>
+    <p class="section-note">The landing page sets the tone — soft sage and cream, a friendly mascot, and copy that frames the product as a mindful space rather than another productivity tracker.</p>
+    <div class="thumb has-img" style="aspect-ratio:1.4;margin-bottom:16px;">
+      <img src="image/leaflink_landing.png" alt="Leaf Link landing page" style="object-position:top;">
+    </div>
+
+    <p class="section-note">Logging in leads straight to a team dashboard — productivity rings, a wellness event feed, and an AI-generated team insight from Leafy, the app's mascot-turned-assistant.</p>
+    <div class="thumb has-img" style="aspect-ratio:1.653;margin-bottom:16px;">
+      <img src="image/leaflink_dashboard.png" alt="Leaf Link team dashboard">
+    </div>
+
+    <div class="output-row">
+      <div class="thumb has-img" style="aspect-ratio:1.566;background:#3a3f2e;">
+        <img src="image/leaflink_login.png" alt="Leaf Link login screen">
+      </div>
+      <div class="thumb has-img" style="aspect-ratio:1.407;">
+        <img src="image/leaflink_mood_tracker.png" alt="Leaf Link mood tracker with coworker moods panel">
+      </div>
+    </div>
+
+    <p class="section-note" style="margin-top:24px;">Day-to-day check-ins happen through Leafy, an in-app AI chat that prompts users to reflect and helps break down a busy day into manageable tasks.</p>
+    <div class="thumb has-img" style="aspect-ratio:0.507;max-width:340px;margin:0 auto;">
+      <img src="image/leaflink_chat.png" alt="Leafy AI chat screen">
     </div>
   </section>
 
   <section>
-    <h2>Final output</h2>
-    <p class="section-note">The landing page sets the tone — soft sage and cream, a friendly mascot, and copy that frames the product as a mindful space rather than another productivity tracker.</p>
-    <div class="thumb" style="aspect-ratio:16/9;padding:0;overflow:hidden;margin-bottom:16px;">
-      <img src="image/leaflink_landing.png" alt="Leaf Link landing page" style="width:100%;height:100%;object-fit:cover;object-position:top;">
-    </div>
-
-    <p class="section-note">Logging in leads straight to a team dashboard — productivity rings, a wellness event feed, and an AI-generated team insight from Leafy, the app's mascot-turned-assistant.</p>
-    <div class="output-gallery">
-      <div class="thumb has-img gallery-hero"><img src="image/leaflink_dashboard.png" alt="Leaf Link team dashboard" style="object-position:center top;"></div>
-      <div class="thumb has-img gallery-side" style="background:#3a3f2e;"><img src="image/leaflink_login.png" alt="Leaf Link login screen"></div>
-      <div class="thumb has-img gallery-side"><img src="image/leaflink_mood_tracker.png" alt="Leaf Link mood tracker with coworker moods panel"></div>
-    </div>
-
-    <p class="section-note" style="margin-top:24px;">Day-to-day check-ins happen through Leafy, an in-app AI chat that prompts users to reflect and helps break down a busy day into manageable tasks.</p>
-    <div class="thumb" style="aspect-ratio:21/9;padding:0;overflow:hidden;">
-      <img src="image/leaflink_chat.png" alt="Leafy AI chat screen" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+    <h2>Process</h2>
+    <p class="section-note">The team built around a single mascot — a leaf character — designed to soften the tone of mood-tracking and make daily check-ins feel approachable rather than clinical. A small interaction detail: the leaf shifts pose on cursor hover, giving the mascot a bit of life wherever it appears in the UI.</p>
+    <div class="thumb has-img" style="aspect-ratio:0.598;max-width:220px;background:#1a1a1a;">
+      <img src="image/leaflink_mascot.png" alt="Leaf Link mascot character exploration, showing hover state poses" style="object-fit:contain;">
     </div>
   </section>
 
