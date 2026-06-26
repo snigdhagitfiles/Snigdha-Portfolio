@@ -215,8 +215,8 @@
     font-weight:600;
     font-size:120px;
     line-height:1;
-    color:var(--accent-soft);
-    opacity:0.35;
+    color:var(--row-accent-soft, var(--accent-soft));
+    opacity:0.45;
     z-index:0;
     pointer-events:none;
     user-select:none;
@@ -242,7 +242,7 @@
     gap:10px;
     transition:color .2s;
   }
-  .project-row:hover .card-title-link{ color:var(--accent); }
+  .project-row:hover .card-title-link{ color:var(--row-accent, var(--accent)); }
   .card-title-link svg{
     width:20px;height:20px;flex-shrink:0;
     transform:translateY(2px);
@@ -266,8 +266,8 @@
     font-size:11px;
     letter-spacing:0.04em;
     text-transform:uppercase;
-    color:var(--accent);
-    border:1px solid var(--accent-soft);
+    color:var(--row-accent, var(--accent));
+    border:1px solid var(--row-accent-soft, var(--accent-soft));
     padding:4px 10px;
     border-radius:20px;
     font-weight:500;
@@ -336,7 +336,7 @@
         </div>
       </a>
 
-      <a class="project-row" href="designathon.html" style="text-decoration:none;color:inherit;display:grid;">
+      <a class="project-row" href="designathon.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#5F7C77;--row-accent-soft:#99ABA6;">
         <div class="thumb-wrap">
           <div class="ghost-num">02</div>
           <div class="thumb"><span>Figma screen</span></div>
@@ -355,7 +355,7 @@
         </div>
       </a>
 
-      <a class="project-row" href="posters.html" style="text-decoration:none;color:inherit;display:grid;">
+      <a class="project-row" href="posters.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#5C1124;--row-accent-soft:#9C5468;">
         <div class="thumb-wrap">
           <div class="ghost-num">03</div>
           <div class="thumb"><span>Poster photo</span></div>
@@ -374,7 +374,7 @@
         </div>
       </a>
 
-      <a class="project-row" href="fourth.html" style="text-decoration:none;color:inherit;display:grid;">
+      <a class="project-row" href="fourth.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#6F6C43;--row-accent-soft:#A6A179;">
         <div class="thumb-wrap">
           <div class="ghost-num">04</div>
           <div class="thumb"><span>Add project 4</span></div>
