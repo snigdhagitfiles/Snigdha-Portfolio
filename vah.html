@@ -12,7 +12,7 @@
     --bg:#FAF8F4;
     --ink:#1C1B19;
     --ink-soft:#5C5850;
-    --accent:#A8967D;
+    --accent:#A8755A;
     --line:#E4DFD5;
     --card:#FFFFFF;
   }
@@ -73,7 +73,7 @@
     gap:24px;
     margin-top:36px;
     padding-top:28px;
-    border-top:1px solid var(--line);
+    border-top:2px solid var(--accent);
   }
   .fact-label{
     font-size:11px;
@@ -115,12 +115,29 @@
     text-transform:uppercase;
     text-align:center;
     padding:16px;
+    overflow:hidden;
+    position:relative;
   }
   .thumb span{
     background:rgba(255,255,255,0.85);
     padding:6px 12px;
     border-radius:3px;
     border:1px solid var(--line);
+  }
+  .thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .thumb.has-img{ padding:0; }
+  .thumb.pad-light{ background:#F4F1EC; }
+  .thumb.logo-tile{
+    background:#F4F1EC;
+    padding:14%;
+  }
+  .thumb.logo-tile img{
+    object-fit:contain;
   }
 
   /* Process grid: 3 small squares */
@@ -131,17 +148,24 @@
   }
   .process-grid .thumb{ aspect-ratio:1; }
 
-  /* Output: hero shot + supporting grid */
-  .output-hero{
-    aspect-ratio:16/9;
-    margin-bottom:16px;
-  }
-  .output-grid{
+  /* Output: mixed gallery layout */
+  .output-gallery{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:1.3fr 1fr;
+    grid-template-rows:1fr 1fr;
     gap:16px;
   }
-  .output-grid .thumb{ aspect-ratio:1; }
+  .gallery-hero{
+    grid-row:1 / 3;
+    aspect-ratio:3/4;
+  }
+  .gallery-side{
+    aspect-ratio:1;
+  }
+  @media (max-width:680px){
+    .output-gallery{ grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
+    .gallery-hero{ grid-column:1 / -1; grid-row:auto; aspect-ratio:4/3; }
+  }
 
   .wrap-up{
     background:var(--card);
@@ -178,7 +202,7 @@
 
   @media (max-width:680px){
     .facts{grid-template-columns:1fr 1fr;}
-    .process-grid, .output-grid{grid-template-columns:1fr 1fr;}
+    .process-grid{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
@@ -192,12 +216,12 @@
   <header class="hero">
     <div class="eyebrow">01 · Branding</div>
     <h1>VAH brand identity</h1>
-    <p class="sub">Logo, print, and merchandise design for a student-run nonprofit — built to hold up across t-shirts, business cards, stickers, and Instagram.</p>
+    <p class="sub">A full visual identity for Virtual Arts for Humanity, a performing arts nonprofit — built to hold up across t-shirts, business cards, stickers, and social media.</p>
 
     <div class="facts">
       <div>
         <div class="fact-label">Role</div>
-        <div class="fact-value">Lead designer</div>
+        <div class="fact-value">Design team lead</div>
       </div>
       <div>
         <div class="fact-label">Tools</div>
@@ -212,34 +236,41 @@
 
   <section>
     <h2>The problem</h2>
-    <p class="section-note">[One or two sentences: what VAH needed and why — e.g. "VAH had no consistent visual identity across events, so merch and posts looked disconnected from each other."]</p>
+    <p class="section-note">VAH (Virtual Arts for Humanity) is a 501(c)(3) performing arts nonprofit that needed a cohesive visual identity — one wordmark that could scale from an Instagram sticker down to a business card and up to a t-shirt print, without losing legibility or feeling disjointed across formats.</p>
   </section>
 
   <section>
     <h2>Process</h2>
-    <p class="section-note">Sketches, color exploration, early logo directions — swap these for real photos/exports.</p>
-    <div class="process-grid">
-      <div class="thumb"><span>Sketch</span></div>
-      <div class="thumb"><span>Color options</span></div>
-      <div class="thumb"><span>Logo drafts</span></div>
-    </div>
+    <p class="section-note">The mark started as a simple idea: merge a treble clef with a closed eye, so the logo reads as both "art" and "vision" at a glance. From there, the design extended into two logo variants (navy and white/gold) and an orange sticker alternate, so VAH had options for different backgrounds and use cases — social profiles, print, and merch.</p>
   </section>
 
   <section>
     <h2>Final output</h2>
-    <p class="section-note">Lead with your strongest shot — a clean logo lockup or a flat-lay of the merch.</p>
-    <div class="thumb output-hero"><span>Main logo / hero shot</span></div>
-    <div class="output-grid">
-      <div class="thumb"><span>T-shirt mockup</span></div>
-      <div class="thumb"><span>Business card</span></div>
-      <div class="thumb"><span>Sticker / IG post</span></div>
+    <p class="section-note">The VAH wordmark built into a full identity system — apparel, business cards, and event stickers.</p>
+    <div class="output-gallery">
+      <div class="thumb has-img gallery-hero"><img src="images/tshirt_new.jpg" alt="VAH branded t-shirt, full back design"></div>
+      <div class="thumb has-img logo-tile gallery-side"><img src="images/logo_navy_round.png" alt="VAH circular logo, navy and white"></div>
+      <div class="thumb has-img logo-tile gallery-side"><img src="images/sticker_orange.png" alt="VAH sticker design, orange"></div>
+    </div>
+    <div class="process-grid" style="grid-template-columns:1fr 1fr;margin-top:16px;">
+      <div class="thumb has-img" style="aspect-ratio:4/3;"><img src="images/tshirt_corner_logo.png" alt="VAH t-shirt, corner logo variant"></div>
+      <div class="thumb has-img logo-tile" style="aspect-ratio:4/3;"><img src="images/sticker_white.png" alt="VAH sticker design, white and gold"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Business cards</h2>
+    <p class="section-note">Front and back designs created for organizational outreach and networking.</p>
+    <div class="process-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="thumb has-img" style="aspect-ratio:16/9;"><img src="images/card_front.png" alt="VAH business card front"></div>
+      <div class="thumb has-img" style="aspect-ratio:16/9;"><img src="images/card_back.png" alt="VAH business card back"></div>
     </div>
   </section>
 
   <section>
     <h2>Outcome</h2>
     <div class="wrap-up">
-      <p>[One or two sentences on impact — e.g. "Merch sold out at VAH's spring fundraiser, and the identity has been used consistently across the org's Instagram since launch."]</p>
+      <p>The final identity — a treble-clef-and-eye mark paired with a navy, orange, and gold palette — now runs across VAH's stickers, business cards, and merchandise, giving the organization one consistent look across outreach, fundraising, and social media.</p>
     </div>
   </section>
 
