@@ -69,12 +69,23 @@
 
   .facts{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(5,1fr);
     gap:24px;
     margin-top:36px;
     padding-top:28px;
     border-top:2px solid var(--accent);
   }
+  .swatches{
+    display:flex;
+  }
+  .swatch{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    border:2px solid var(--bg);
+    margin-left:-8px;
+  }
+  .swatch:first-child{ margin-left:0; }
   .fact-label{
     font-size:11px;
     letter-spacing:0.06em;
@@ -229,6 +240,14 @@
       <div>
         <div class="fact-label">Result</div>
         <div class="fact-value">3rd place</div>
+      </div>
+      <div>
+        <div class="fact-label">Color palette</div>
+        <div class="swatches">
+          <div class="swatch" style="background:#7C9473;"></div>
+          <div class="swatch" style="background:#E8DFC8;"></div>
+          <div class="swatch" style="background:#3A3F2E;"></div>
+        </div>
       </div>
     </div>
   </header>
