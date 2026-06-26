@@ -6,15 +6,15 @@
 <title>Movie Poster Series — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAF8F4;
-    --ink:#1C1B19;
-    --ink-soft:#5C5850;
-    --accent:#A8967D;
-    --line:#E4DFD5;
-    --card:#FFFFFF;
+    --bg:#0E0D0C;
+    --bg-soft:#181614;
+    --ink:#F3EFE8;
+    --ink-soft:#B8B0A4;
+    --accent:#E8543C;
+    --line:#2A2724;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
@@ -24,7 +24,7 @@
     -webkit-font-smoothing:antialiased;
   }
   a{text-decoration:none;color:inherit;}
-  .wrap{max-width:880px;margin:0 auto;padding:0 32px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
 
   .nav{
     padding:32px 0;
@@ -41,43 +41,51 @@
   .nav a:hover{ color:var(--accent); border-color:var(--accent); }
 
   header.hero{
-    padding:24px 0 56px;
+    padding:32px 0 64px;
     border-bottom:1px solid var(--line);
     margin-bottom:56px;
   }
   .eyebrow{
     font-size:13px;
-    letter-spacing:0.08em;
+    letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--accent);
-    font-weight:500;
-    margin-bottom:16px;
+    font-weight:600;
+    margin-bottom:18px;
   }
   h1{
     font-family:'Fraunces',serif;
-    font-weight:500;
-    font-size:clamp(34px,5vw,52px);
-    line-height:1.08;
-    margin-bottom:14px;
+    font-weight:600;
+    font-size:clamp(44px,7vw,76px);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
   }
   .hero p.sub{
-    font-size:17px;
+    font-size:18px;
     color:var(--ink-soft);
-    max-width:560px;
-    line-height:1.6;
+    max-width:600px;
+    line-height:1.65;
   }
 
   .facts{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:24px;
-    margin-top:36px;
+    margin-top:40px;
     padding-top:28px;
-    border-top:1px solid var(--line);
+    border-top:2px solid var(--accent);
   }
+  .swatches{ display:flex; }
+  .swatch{
+    width:22px; height:22px; border-radius:50%;
+    border:2px solid var(--bg);
+    margin-left:-8px;
+  }
+  .swatch:first-child{ margin-left:0; }
   .fact-label{
     font-size:11px;
-    letter-spacing:0.06em;
+    letter-spacing:0.08em;
     text-transform:uppercase;
     color:var(--ink-soft);
     margin-bottom:6px;
@@ -87,71 +95,86 @@
     font-weight:500;
   }
 
-  section{ margin-bottom:64px; }
+  section{ margin-bottom:72px; }
   h2{
     font-family:'Fraunces',serif;
-    font-weight:500;
-    font-size:24px;
-    margin-bottom:8px;
+    font-weight:600;
+    font-size:26px;
+    margin-bottom:10px;
   }
   .section-note{
-    font-size:14px;
+    font-size:15px;
     color:var(--ink-soft);
-    margin-bottom:24px;
-    max-width:560px;
-    line-height:1.6;
+    margin-bottom:32px;
+    max-width:600px;
+    line-height:1.65;
   }
 
-  .thumb{
-    background:repeating-linear-gradient(135deg, #F1ECE2 0px, #F1ECE2 2px, #FAF8F4 2px, #FAF8F4 14px);
-    border:1px solid var(--line);
-    border-radius:4px;
+  /* POSTER GALLERY */
+  .poster-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .poster-card{
+    position:relative;
+    aspect-ratio:0.75;
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--bg-soft);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .poster-card:hover{
+    transform:translateY(-6px);
+  }
+  .poster-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .poster-overlay{
+    position:absolute;
+    inset:0;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--ink-soft);
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:22px;
+    background:linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.92) 100%);
+    opacity:0;
+    transition:opacity .3s ease;
+  }
+  .poster-card:hover .poster-overlay{ opacity:1; }
+  .poster-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    margin-bottom:4px;
+  }
+  .poster-meta{
     font-size:12px;
+    color:var(--ink-soft);
     letter-spacing:0.03em;
-    text-transform:uppercase;
-    text-align:center;
-    padding:16px;
-  }
-  .thumb span{
-    background:rgba(255,255,255,0.85);
-    padding:6px 12px;
-    border-radius:3px;
-    border:1px solid var(--line);
   }
 
-  /* Process grid: 3 small squares */
-  .process-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
+  @media (max-width:760px){
+    .poster-grid{ grid-template-columns:1fr 1fr; gap:16px; }
+    .facts{ grid-template-columns:1fr 1fr; }
   }
-  .process-grid .thumb{ aspect-ratio:1; }
-
-  /* Output: hero shot + supporting grid */
-  .output-hero{
-    aspect-ratio:16/9;
-    margin-bottom:16px;
+  @media (max-width:480px){
+    .poster-grid{ grid-template-columns:1fr; max-width:320px; margin:0 auto; }
   }
-  .output-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
-  }
-  .output-grid .thumb{ aspect-ratio:1; }
 
   .wrap-up{
-    background:var(--card);
+    background:var(--bg-soft);
     border:1px solid var(--line);
-    border-radius:4px;
+    border-radius:6px;
     padding:28px 32px;
   }
   .wrap-up p{
     font-size:15px;
-    line-height:1.65;
+    line-height:1.7;
     color:var(--ink-soft);
   }
 
@@ -175,11 +198,6 @@
     text-transform:uppercase;
     color:var(--ink-soft);
   }
-
-  @media (max-width:680px){
-    .facts{grid-template-columns:1fr 1fr;}
-    .process-grid, .output-grid{grid-template-columns:1fr 1fr;}
-  }
 </style>
 </head>
 <body>
@@ -192,7 +210,7 @@
   <header class="hero">
     <div class="eyebrow">03 · Editorial</div>
     <h1>Movie poster series</h1>
-    <p class="sub">A set of original movie posters exploring typography, composition, and mood across different genres.</p>
+    <p class="sub">A growing collection of original movie posters — a mix of personal concept pieces and real short-film commissions — exploring typography, mood, and composition across genres.</p>
 
     <div class="facts">
       <div>
@@ -201,45 +219,56 @@
       </div>
       <div>
         <div class="fact-label">Tools</div>
-        <div class="fact-value">[Photoshop / Illustrator]</div>
+        <div class="fact-value">Photoshop, Illustrator, Procreate</div>
       </div>
       <div>
-        <div class="fact-label">Pieces</div>
-        <div class="fact-value">[Number] posters</div>
+        <div class="fact-label">Color palette</div>
+        <div class="swatches">
+          <div class="swatch" style="background:#E8543C;"></div>
+          <div class="swatch" style="background:#1C1B19;"></div>
+          <div class="swatch" style="background:#B8472E;"></div>
+        </div>
       </div>
     </div>
   </header>
 
   <section>
-    <h2>The concept</h2>
-    <p class="section-note">[Was this a class project, personal project, or for a specific film/event? One or two sentences on the brief or idea behind the series.]</p>
-  </section>
+    <h2>The work</h2>
+    <p class="section-note">Each poster starts from the film's mood rather than its plot — a color, a texture, a single image that carries the tone before any text goes on the page.</p>
 
-  <section>
-    <h2>Process</h2>
-    <p class="section-note">Composition sketches, typography tests, early drafts — swap for real images.</p>
-    <div class="process-grid">
-      <div class="thumb"><span>Layout sketch</span></div>
-      <div class="thumb"><span>Typography test</span></div>
-      <div class="thumb"><span>Early draft</span></div>
-    </div>
-  </section>
+    <div class="poster-grid">
 
-  <section>
-    <h2>Final posters</h2>
-    <p class="section-note">Lead with your strongest poster.</p>
-    <div class="thumb output-hero"><span>Best poster, full size</span></div>
-    <div class="output-grid">
-      <div class="thumb"><span>Poster 2</span></div>
-      <div class="thumb"><span>Poster 3</span></div>
-      <div class="thumb"><span>Poster 4</span></div>
+      <div class="poster-card">
+        <img src="images/poster_admiring.jpg" alt="Admiring movie poster">
+        <div class="poster-overlay">
+          <div class="poster-title">Admiring</div>
+          <div class="poster-meta">Blooming Productions · dir. Freeda Manning</div>
+        </div>
+      </div>
+
+      <div class="poster-card">
+        <img src="images/poster_miss_placed.jpg" alt="Miss. Placed movie poster">
+        <div class="poster-overlay">
+          <div class="poster-title">Miss. Placed</div>
+          <div class="poster-meta">Sketching Productions · dir. Arnold Shever</div>
+        </div>
+      </div>
+
+      <div class="poster-card">
+        <img src="images/poster_busy.png" alt="Busy movie poster">
+        <div class="poster-overlay">
+          <div class="poster-title">Busy</div>
+          <div class="poster-meta">Dreamer Company · dir. Hunter Boss</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <section>
     <h2>Outcome</h2>
     <div class="wrap-up">
-      <p>[Any context on where these were used/shown, or what you learned about typography and composition from the series.]</p>
+      <p>More posters are in progress — this series is ongoing, with each new piece pushing into a different genre and visual treatment, from grainy film-photo collage to bold painterly illustration.</p>
     </div>
   </section>
 
