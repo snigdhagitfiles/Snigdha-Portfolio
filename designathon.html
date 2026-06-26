@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designathon App — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF8F4;
+    --ink:#1C1B19;
+    --ink-soft:#5C5850;
+    --accent:#A8967D;
+    --line:#E4DFD5;
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 32px;}
+
+  .nav{
+    padding:32px 0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .nav a{
+    border-bottom:1px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  .nav a:hover{ color:var(--accent); border-color:var(--accent); }
+
+  header.hero{
+    padding:24px 0 56px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:56px;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:500;
+    margin-bottom:16px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:clamp(34px,5vw,52px);
+    line-height:1.08;
+    margin-bottom:14px;
+  }
+  .hero p.sub{
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:560px;
+    line-height:1.6;
+  }
+
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-top:36px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .fact-label{
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .fact-value{
+    font-size:15px;
+    font-weight:500;
+  }
+
+  section{ margin-bottom:64px; }
+  h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:24px;
+    margin-bottom:8px;
+  }
+  .section-note{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:24px;
+    max-width:560px;
+    line-height:1.6;
+  }
+
+  .thumb{
+    background:repeating-linear-gradient(135deg, #F1ECE2 0px, #F1ECE2 2px, #FAF8F4 2px, #FAF8F4 14px);
+    border:1px solid var(--line);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-soft);
+    font-size:12px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:16px;
+  }
+  .thumb span{
+    background:rgba(255,255,255,0.85);
+    padding:6px 12px;
+    border-radius:3px;
+    border:1px solid var(--line);
+  }
+
+  /* Process grid: 3 small squares */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .process-grid .thumb{ aspect-ratio:1; }
+
+  /* Output: hero shot + supporting grid */
+  .output-hero{
+    aspect-ratio:16/9;
+    margin-bottom:16px;
+  }
+  .output-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .output-grid .thumb{ aspect-ratio:1; }
+
+  .wrap-up{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px 32px;
+  }
+  .wrap-up p{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+
+  .next-project{
+    border-top:1px solid var(--line);
+    padding:40px 0 64px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+  }
+  .next-project a{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    color:var(--ink);
+    transition:color .2s;
+  }
+  .next-project a:hover{ color:var(--accent); }
+  .next-label{
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:680px){
+    .facts{grid-template-columns:1fr 1fr;}
+    .process-grid, .output-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="nav">
+    <a href="index.html">&larr; All projects</a>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">02 · UI / UX · 3rd place</div>
+    <h1>Designathon app</h1>
+    <p class="sub">A product design built solo/with a team under a hackathon deadline — designed end-to-end in Figma, placing 3rd overall.</p>
+
+    <div class="facts">
+      <div>
+        <div class="fact-label">Role</div>
+        <div class="fact-value">[Your role]</div>
+      </div>
+      <div>
+        <div class="fact-label">Tools</div>
+        <div class="fact-value">Figma</div>
+      </div>
+      <div>
+        <div class="fact-label">Result</div>
+        <div class="fact-value">3rd place</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <p class="section-note">[What was the prompt/theme of the designathon, and what problem did your app solve?]</p>
+  </section>
+
+  <section>
+    <h2>Process</h2>
+    <p class="section-note">Wireframes, user flow sketches, early Figma versions — swap for real screenshots.</p>
+    <div class="process-grid">
+      <div class="thumb"><span>Wireframe</span></div>
+      <div class="thumb"><span>User flow</span></div>
+      <div class="thumb"><span>Early Figma draft</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Final output</h2>
+    <p class="section-note">Lead with your strongest screen — onboarding, home, or whichever shows your best UI work.</p>
+    <div class="thumb output-hero"><span>Main app screen</span></div>
+    <div class="output-grid">
+      <div class="thumb"><span>Screen 2</span></div>
+      <div class="thumb"><span>Screen 3</span></div>
+      <div class="thumb"><span>Screen 4</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Outcome</h2>
+    <div class="wrap-up">
+      <p>[What judges said, or why it placed 3rd — e.g. "Judges highlighted the onboarding flow specifically for its clarity under time pressure."]</p>
+    </div>
+  </section>
+
+  <div class="next-project">
+    <div class="next-label">Next project</div>
+    <a href="posters.html">Movie poster series &rarr;</a>
+  </div>
+
+</div>
+</body>
+</html>
