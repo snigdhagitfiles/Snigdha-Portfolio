@@ -160,10 +160,6 @@
   .project-row:nth-child(even) .card-tags{
     justify-content:flex-end;
   }
-  .project-row:nth-child(even) .ghost-num{
-    right:auto;
-    left:-10px;
-  }
   .project-row:first-child{ padding-top:8px; }
   @media (max-width:760px){
     .project-row, .project-row:nth-child(even){
@@ -222,18 +218,15 @@
   }
 
   .ghost-num{
-    position:absolute;
-    top:-34px;
-    right:-10px;
     font-family:'Fraunces',serif;
     font-weight:600;
-    font-size:120px;
+    font-size:15px;
     line-height:1;
-    color:var(--row-accent-soft, var(--accent-soft));
-    opacity:0.45;
-    z-index:0;
-    pointer-events:none;
-    user-select:none;
+    color:var(--row-accent, var(--accent));
+    opacity:0.7;
+    letter-spacing:0.04em;
+    margin-bottom:8px;
+    display:block;
   }
 
   .info-block{
@@ -333,10 +326,10 @@
 
       <a class="project-row" href="vah.html" style="text-decoration:none;color:inherit;display:grid;">
         <div class="thumb-wrap">
-          <div class="ghost-num">01</div>
           <div class="thumb has-img logo-tile"><img src="images/logo_navy_round.png" alt="VAH circular logo"></div>
         </div>
         <div class="info-block">
+          <div class="ghost-num">01</div>
           <div class="card-title">
             <span class="card-title-link">VAH brand identity
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -352,10 +345,10 @@
 
       <a class="project-row" href="designathon.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#5F7C77;--row-accent-soft:#99ABA6;">
         <div class="thumb-wrap">
-          <div class="ghost-num">02</div>
           <div class="thumb has-img"><img src="image/leaflink_landing.png" alt="Leaf Link landing page"></div>
         </div>
         <div class="info-block">
+          <div class="ghost-num">02</div>
           <div class="card-title">
             <span class="card-title-link">Designathon app
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -371,10 +364,10 @@
 
       <a class="project-row" href="posters.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#5C1124;--row-accent-soft:#9C5468;">
         <div class="thumb-wrap">
-          <div class="ghost-num">03</div>
           <div class="thumb"><span>Poster photo</span></div>
         </div>
         <div class="info-block">
+          <div class="ghost-num">03</div>
           <div class="card-title">
             <span class="card-title-link">Movie poster series
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -390,10 +383,10 @@
 
       <a class="project-row" href="fourth.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#6F6C43;--row-accent-soft:#A6A179;">
         <div class="thumb-wrap">
-          <div class="ghost-num">04</div>
           <div class="thumb"><span>Add project 4</span></div>
         </div>
         <div class="info-block">
+          <div class="ghost-num">04</div>
           <div class="card-title">
             <span class="card-title-link">Project name
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
