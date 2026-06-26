@@ -69,12 +69,23 @@
 
   .facts{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:24px;
     margin-top:36px;
     padding-top:28px;
     border-top:2px solid var(--accent);
   }
+  .swatches{
+    display:flex;
+  }
+  .swatch{
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    border:2px solid var(--bg);
+    margin-left:-8px;
+  }
+  .swatch:first-child{ margin-left:0; }
   .fact-label{
     font-size:11px;
     letter-spacing:0.06em;
@@ -232,6 +243,14 @@
       <div>
         <div class="fact-label">Deliverables</div>
         <div class="fact-value">Logo, merch, social</div>
+      </div>
+      <div>
+        <div class="fact-label">Color palette</div>
+        <div class="swatches">
+          <div class="swatch" style="background:#0F1450;"></div>
+          <div class="swatch" style="background:#F2994A;"></div>
+          <div class="swatch" style="background:#E8B84B;"></div>
+        </div>
       </div>
     </div>
   </header>
