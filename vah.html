@@ -147,6 +147,7 @@
     gap:16px;
   }
   .process-grid .thumb{ aspect-ratio:1; }
+  .process-grid.three-up{ grid-template-columns:repeat(3,1fr); }
 
   /* Output: mixed gallery layout */
   .output-gallery{
@@ -203,6 +204,7 @@
   @media (max-width:680px){
     .facts{grid-template-columns:1fr 1fr;}
     .process-grid{grid-template-columns:1fr 1fr;}
+    .process-grid.three-up{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
@@ -247,14 +249,16 @@
   <section>
     <h2>Final output</h2>
     <p class="section-note">The VAH wordmark built into a full identity system — apparel, business cards, and event stickers.</p>
+
     <div class="output-gallery">
-      <div class="thumb has-img gallery-hero"><img src="images/tshirt_new.jpg" alt="VAH branded t-shirt, full back design"></div>
-      <div class="thumb has-img logo-tile gallery-side"><img src="images/logo_navy_round.png" alt="VAH circular logo, navy and white"></div>
-      <div class="thumb has-img logo-tile gallery-side"><img src="images/sticker_orange.png" alt="VAH sticker design, orange"></div>
+      <div class="thumb has-img gallery-hero"><img src="images/tshirt_model_shot.png" alt="Model wearing VAH branded t-shirt, front and back"></div>
+      <div class="thumb has-img gallery-side"><img src="images/tshirt_new.jpg" alt="VAH branded t-shirt, flat product shot"></div>
+      <div class="thumb has-img gallery-side"><img src="images/tshirt_corner_logo.png" alt="VAH t-shirt, corner logo variant"></div>
     </div>
-    <div class="process-grid" style="grid-template-columns:1fr 1fr;margin-top:16px;">
-      <div class="thumb has-img" style="aspect-ratio:4/3;"><img src="images/tshirt_corner_logo.png" alt="VAH t-shirt, corner logo variant"></div>
-      <div class="thumb has-img logo-tile" style="aspect-ratio:4/3;"><img src="images/sticker_white.png" alt="VAH sticker design, white and gold"></div>
+    <div class="process-grid three-up" style="margin-top:16px;">
+      <div class="thumb has-img logo-tile" style="aspect-ratio:1;"><img src="images/logo_navy_round.png" alt="VAH circular logo, navy and white"></div>
+      <div class="thumb has-img logo-tile" style="aspect-ratio:1;"><img src="images/sticker_orange.png" alt="VAH sticker design, orange"></div>
+      <div class="thumb has-img logo-tile" style="aspect-ratio:1;"><img src="images/sticker_white.png" alt="VAH sticker design, white and gold"></div>
     </div>
   </section>
 
