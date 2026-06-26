@@ -3,120 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAH Brand Identity — Portfolio</title>
+<title>Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FAF8F4;
     --ink:#1C1B19;
     --ink-soft:#5C5850;
     --accent:#A8755A;
+    --accent-soft:#C9B79E;
     --line:#E4DFD5;
     --card:#FFFFFF;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     background:var(--bg);
     color:var(--ink);
     font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   a{text-decoration:none;color:inherit;}
-  .wrap{max-width:880px;margin:0 auto;padding:0 32px;}
 
-  .nav{
-    padding:32px 0;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:14px;
-    color:var(--ink-soft);
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 32px;
+    position:relative;
   }
-  .nav a{
-    border-bottom:1px solid transparent;
-    transition:border-color .2s, color .2s;
-  }
-  .nav a:hover{ color:var(--accent); border-color:var(--accent); }
 
+  /* HERO — poster-style, asymmetric */
   header.hero{
-    padding:24px 0 56px;
-    border-bottom:1px solid var(--line);
-    margin-bottom:56px;
+    padding:84px 0 70px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:end;
+    gap:24px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:28px;
+  }
+  .name-block{
+    position:relative;
   }
   .eyebrow{
     font-size:13px;
-    letter-spacing:0.08em;
+    letter-spacing:0.14em;
     text-transform:uppercase;
     color:var(--accent);
-    font-weight:500;
-    margin-bottom:16px;
+    font-weight:600;
+    margin-bottom:6px;
   }
   h1{
     font-family:'Fraunces',serif;
-    font-weight:500;
-    font-size:clamp(34px,5vw,52px);
-    line-height:1.08;
-    margin-bottom:14px;
+    font-weight:600;
+    font-size:clamp(54px,11vw,118px);
+    line-height:0.92;
+    letter-spacing:-0.02em;
+    position:relative;
   }
-  .hero p.sub{
-    font-size:17px;
+  h1 .last{
+    display:block;
+    margin-left:clamp(20px,6vw,90px);
+    font-style:italic;
+    font-weight:400;
+    color:var(--accent);
+  }
+  .meta-block{
+    text-align:right;
+    padding-bottom:10px;
+  }
+  .meta-block p.sub{
+    font-size:15px;
     color:var(--ink-soft);
-    max-width:560px;
-    line-height:1.6;
+    max-width:300px;
+    line-height:1.55;
+    margin-bottom:18px;
+  }
+  .contact-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:6px;
+    font-size:13px;
+  }
+  .contact-row a{
+    color:var(--ink);
+    font-weight:500;
+    position:relative;
+    padding-right:18px;
+    transition:color .2s, padding-right .2s;
+  }
+  .contact-row a::after{
+    content:"↗";
+    position:absolute;
+    right:0;
+    opacity:0.5;
+    transition:opacity .2s;
+  }
+  .contact-row a:hover{ color:var(--accent); }
+  .contact-row a:hover::after{ opacity:1; }
+
+  @media (max-width:680px){
+    .hero-grid{grid-template-columns:1fr; text-align:left;}
+    .meta-block{text-align:left;}
+    .contact-row{align-items:flex-start;}
+    .meta-block p.sub{max-width:100%;}
+    h1 .last{margin-left:12vw;}
   }
 
-  .facts{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-    margin-top:36px;
-    padding-top:28px;
-    border-top:2px solid var(--accent);
-  }
-  .fact-label{
-    font-size:11px;
-    letter-spacing:0.06em;
+  /* SECTION LABEL */
+  .section-label{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    font-size:12px;
+    letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--ink-soft);
-    margin-bottom:6px;
+    font-weight:600;
+    margin:56px 0 40px;
   }
-  .fact-value{
-    font-size:15px;
-    font-weight:500;
-  }
-
-  section{ margin-bottom:64px; }
-  h2{
-    font-family:'Fraunces',serif;
-    font-weight:500;
-    font-size:24px;
-    margin-bottom:8px;
-  }
-  .section-note{
-    font-size:14px;
-    color:var(--ink-soft);
-    margin-bottom:24px;
-    max-width:560px;
-    line-height:1.6;
+  .section-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
   }
 
+  /* PROJECT LIST — alternating asymmetric rows */
+  .project-row{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:48px;
+    align-items:center;
+    padding:48px 0;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .project-row:nth-child(even){
+    grid-template-columns:1fr 1.1fr;
+  }
+  .project-row:nth-child(even) .thumb-wrap{
+    order:2;
+  }
+  .project-row:nth-child(even) .info-block{
+    order:1;
+    text-align:right;
+    align-items:flex-end;
+  }
+  .project-row:nth-child(even) .card-tags{
+    justify-content:flex-end;
+  }
+  .project-row:nth-child(even) .ghost-num{
+    right:auto;
+    left:-10px;
+  }
+  .project-row:first-child{ padding-top:8px; }
+  @media (max-width:760px){
+    .project-row, .project-row:nth-child(even){
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+    .project-row:nth-child(even) .thumb-wrap{ order:1; }
+    .project-row:nth-child(even) .info-block{
+      order:2; text-align:left; align-items:flex-start;
+    }
+    .project-row:nth-child(even) .card-tags{ justify-content:flex-start; }
+  }
+
+  .thumb-wrap{
+    position:relative;
+  }
   .thumb{
+    aspect-ratio:4/3;
     background:repeating-linear-gradient(135deg, #F1ECE2 0px, #F1ECE2 2px, #FAF8F4 2px, #FAF8F4 14px);
     border:1px solid var(--line);
-    border-radius:4px;
     display:flex;
     align-items:center;
     justify-content:center;
     color:var(--ink-soft);
     font-size:12px;
-    letter-spacing:0.03em;
+    letter-spacing:0.04em;
     text-transform:uppercase;
-    text-align:center;
-    padding:16px;
-    overflow:hidden;
-    position:relative;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
   }
   .thumb span{
     background:rgba(255,255,255,0.85);
@@ -131,158 +206,213 @@
     display:block;
   }
   .thumb.has-img{ padding:0; }
-  .thumb.pad-light{ background:#F4F1EC; }
   .thumb.logo-tile{
     background:#F4F1EC;
-    padding:14%;
+    padding:12%;
   }
   .thumb.logo-tile img{
     object-fit:contain;
   }
-
-  /* Process grid: 3 small squares */
-  .process-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
+  .project-row:hover .thumb{
+    transform:rotate(-1deg) scale(1.02);
+    box-shadow:0 24px 40px -20px rgba(28,27,25,0.18);
   }
-  .process-grid .thumb{ aspect-ratio:1; }
-  .process-grid.three-up{ grid-template-columns:repeat(3,1fr); }
-
-  /* Output: mixed gallery layout */
-  .output-gallery{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    grid-template-rows:1fr 1fr;
-    gap:16px;
-  }
-  .gallery-hero{
-    grid-row:1 / 3;
-    aspect-ratio:3/4;
-  }
-  .gallery-side{
-    aspect-ratio:1;
-  }
-  @media (max-width:680px){
-    .output-gallery{ grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
-    .gallery-hero{ grid-column:1 / -1; grid-row:auto; aspect-ratio:4/3; }
+  .project-row:nth-child(even):hover .thumb{
+    transform:rotate(1deg) scale(1.02);
   }
 
-  .wrap-up{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:28px 32px;
-  }
-  .wrap-up p{
-    font-size:15px;
-    line-height:1.65;
-    color:var(--ink-soft);
-  }
-
-  .next-project{
-    border-top:1px solid var(--line);
-    padding:40px 0 64px;
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-  }
-  .next-project a{
+  .ghost-num{
+    position:absolute;
+    top:-34px;
+    right:-10px;
     font-family:'Fraunces',serif;
-    font-size:20px;
-    color:var(--ink);
+    font-weight:600;
+    font-size:120px;
+    line-height:1;
+    color:var(--row-accent-soft, var(--accent-soft));
+    opacity:0.45;
+    z-index:0;
+    pointer-events:none;
+    user-select:none;
+  }
+
+  .info-block{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    position:relative;
+    z-index:1;
+  }
+  .card-title{
+    font-family:'Fraunces',serif;
+    font-size:clamp(26px,3.4vw,34px);
+    font-weight:600;
+    margin-bottom:10px;
+    line-height:1.08;
+  }
+  .card-title-link{
+    display:inline-flex;
+    align-items:baseline;
+    gap:10px;
     transition:color .2s;
   }
-  .next-project a:hover{ color:var(--accent); }
-  .next-label{
-    font-size:12px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
+  .project-row:hover .card-title-link{ color:var(--row-accent, var(--accent)); }
+  .card-title-link svg{
+    width:20px;height:20px;flex-shrink:0;
+    transform:translateY(2px);
+    transition:transform .25s ease;
+  }
+  .project-row:hover .card-title-link svg{ transform:translate(4px,2px); }
+
+  .card-desc{
+    font-size:14.5px;
     color:var(--ink-soft);
+    line-height:1.6;
+    max-width:380px;
+    margin-bottom:16px;
+  }
+  .card-tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .tag{
+    font-size:11px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--row-accent, var(--accent));
+    border:1px solid var(--row-accent-soft, var(--accent-soft));
+    padding:4px 10px;
+    border-radius:20px;
+    font-weight:500;
   }
 
-  @media (max-width:680px){
-    .facts{grid-template-columns:1fr 1fr;}
-    .process-grid{grid-template-columns:1fr 1fr;}
-    .process-grid.three-up{grid-template-columns:1fr 1fr;}
+  footer{
+    margin-top:24px;
+    padding:36px 0 64px;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--accent);
+    display:inline-block;
+    margin-right:8px;
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="nav">
-    <a href="index.html">&larr; All projects</a>
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="hero-grid">
+        <div class="name-block">
+          <div class="eyebrow">Design portfolio</div>
+          <h1>Snigdha<span class="last">Mallajosyula</span></h1>
+        </div>
+        <div class="meta-block">
+          <p class="sub">UI/UX designer with a computer science background, also experienced in digital and graphic design. I enjoy creating intuitive, user-centered experiences that balance functionality and visual clarity.</p>
+          <div class="contact-row">
+            <a href="mailto:snigdhamallajosy@gmail.com">snigdhamallajosy@gmail.com</a>
+            <a href="https://github.com/snigdhagitfiles" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/snigdha-mallajosyula-a07a8628a/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="section-label">Selected work</div>
+
+    <div class="project-list">
+
+      <a class="project-row" href="vah.html" style="text-decoration:none;color:inherit;display:grid;">
+        <div class="thumb-wrap">
+          <div class="ghost-num">01</div>
+          <div class="thumb has-img logo-tile"><img src="images/logo_navy_round.png" alt="VAH circular logo"></div>
+        </div>
+        <div class="info-block">
+          <div class="card-title">
+            <span class="card-title-link">VAH brand identity
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <p class="card-desc">Logo, print, and merch design for a student-run nonprofit — built to work across shirts, stickers, cards, and social.</p>
+          <div class="card-tags">
+            <span class="tag">Branding</span>
+            <span class="tag">Print</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="designathon.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#5F7C77;--row-accent-soft:#99ABA6;">
+        <div class="thumb-wrap">
+          <div class="ghost-num">02</div>
+          <div class="thumb"><span>Figma screen</span></div>
+        </div>
+        <div class="info-block">
+          <div class="card-title">
+            <span class="card-title-link">Designathon app
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <p class="card-desc">A Figma product design built under a hackathon deadline — placed 3rd out of competing teams.</p>
+          <div class="card-tags">
+            <span class="tag">UI / UX</span>
+            <span class="tag">3rd place</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="posters.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#5C1124;--row-accent-soft:#9C5468;">
+        <div class="thumb-wrap">
+          <div class="ghost-num">03</div>
+          <div class="thumb"><span>Poster photo</span></div>
+        </div>
+        <div class="info-block">
+          <div class="card-title">
+            <span class="card-title-link">Movie poster series
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <p class="card-desc">A set of original movie posters exploring typography, composition, and mood across different genres.</p>
+          <div class="card-tags">
+            <span class="tag">Editorial</span>
+            <span class="tag">Typography</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-row" href="fourth.html" style="text-decoration:none;color:inherit;display:grid;--row-accent:#6F6C43;--row-accent-soft:#A6A179;">
+        <div class="thumb-wrap">
+          <div class="ghost-num">04</div>
+          <div class="thumb"><span>Add project 4</span></div>
+        </div>
+        <div class="info-block">
+          <div class="card-title">
+            <span class="card-title-link">Project name
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <p class="card-desc">Swap this row for a 4th project, or delete it if you're sticking with three.</p>
+          <div class="card-tags">
+            <span class="tag">Category</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <footer>
+      <span><span class="dot"></span>Built for the HackUTD design application</span>
+      <span>Replace placeholder text and images before sending</span>
+    </footer>
   </div>
 
-  <header class="hero">
-    <div class="eyebrow">01 · Branding</div>
-    <h1>VAH brand identity</h1>
-    <p class="sub">A full visual identity for Virtual Arts for Humanity, a performing arts nonprofit — built to hold up across t-shirts, business cards, stickers, and social media.</p>
-
-    <div class="facts">
-      <div>
-        <div class="fact-label">Role</div>
-        <div class="fact-value">Design team lead</div>
-      </div>
-      <div>
-        <div class="fact-label">Tools</div>
-        <div class="fact-value">Illustrator, Figma</div>
-      </div>
-      <div>
-        <div class="fact-label">Deliverables</div>
-        <div class="fact-value">Logo, merch, social</div>
-      </div>
-    </div>
-  </header>
-
-  <section>
-    <h2>The problem</h2>
-    <p class="section-note">VAH (Virtual Arts for Humanity) is a 501(c)(3) performing arts nonprofit that needed a cohesive visual identity — one wordmark that could scale from an Instagram sticker down to a business card and up to a t-shirt print, without losing legibility or feeling disjointed across formats.</p>
-  </section>
-
-  <section>
-    <h2>Process</h2>
-    <p class="section-note">The mark started as a simple idea: merge a treble clef with a closed eye, so the logo reads as both "art" and "vision" at a glance. From there, the design extended into two logo variants (navy and white/gold) and an orange sticker alternate, so VAH had options for different backgrounds and use cases — social profiles, print, and merch.</p>
-  </section>
-
-  <section>
-    <h2>Final output</h2>
-    <p class="section-note">The VAH wordmark built into a full identity system — apparel, business cards, and event stickers.</p>
-
-    <div class="output-gallery">
-      <div class="thumb has-img gallery-hero"><img src="images/tshirt_models_shot.png" alt="Model wearing VAH branded t-shirt, front and back"></div>
-      <div class="thumb has-img gallery-side"><img src="images/tshirt_new.jpg" alt="VAH branded t-shirt, flat product shot"></div>
-      <div class="thumb has-img gallery-side"><img src="images/tshirt_corner_logo.png" alt="VAH t-shirt, corner logo variant"></div>
-    </div>
-    <div class="process-grid three-up" style="margin-top:16px;">
-      <div class="thumb has-img logo-tile" style="aspect-ratio:1;"><img src="images/logo_navy_round.png" alt="VAH circular logo, navy and white"></div>
-      <div class="thumb has-img logo-tile" style="aspect-ratio:1;"><img src="images/sticker_orange.png" alt="VAH sticker design, orange"></div>
-      <div class="thumb has-img logo-tile" style="aspect-ratio:1;"><img src="images/sticker_white.png" alt="VAH sticker design, white and gold"></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Business cards</h2>
-    <p class="section-note">Front and back designs created for organizational outreach and networking.</p>
-    <div class="process-grid" style="grid-template-columns:1fr 1fr;">
-      <div class="thumb has-img" style="aspect-ratio:16/9;"><img src="images/card_front.png" alt="VAH business card front"></div>
-      <div class="thumb has-img" style="aspect-ratio:16/9;"><img src="images/card_back.png" alt="VAH business card back"></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Outcome</h2>
-    <div class="wrap-up">
-      <p>The final identity — a treble-clef-and-eye mark paired with a navy, orange, and gold palette — now runs across VAH's stickers, business cards, and merchandise, giving the organization one consistent look across outreach, fundraising, and social media.</p>
-    </div>
-  </section>
-
-  <div class="next-project">
-    <div class="next-label">Next project</div>
-    <a href="designathon.html">Designathon app &rarr;</a>
-  </div>
-
-</div>
 </body>
 </html>
