@@ -12,7 +12,7 @@
     --bg:#FAF8F4;
     --ink:#1C1B19;
     --ink-soft:#5C5850;
-    --accent:#A8967D;
+    --accent:#5F7C77;
     --line:#E4DFD5;
     --card:#FFFFFF;
   }
@@ -69,11 +69,11 @@
 
   .facts{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:24px;
     margin-top:36px;
     padding-top:28px;
-    border-top:1px solid var(--line);
+    border-top:2px solid var(--accent);
   }
   .fact-label{
     font-size:11px;
@@ -115,6 +115,8 @@
     text-transform:uppercase;
     text-align:center;
     padding:16px;
+    overflow:hidden;
+    position:relative;
   }
   .thumb span{
     background:rgba(255,255,255,0.85);
@@ -122,6 +124,13 @@
     border-radius:3px;
     border:1px solid var(--line);
   }
+  .thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .thumb.has-img{ padding:0; }
 
   /* Process grid: 3 small squares */
   .process-grid{
@@ -142,6 +151,25 @@
     gap:16px;
   }
   .output-grid .thumb{ aspect-ratio:1; }
+
+  /* Output: mixed gallery layout */
+  .output-gallery{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:16px;
+  }
+  .gallery-hero{
+    grid-row:1 / 3;
+    aspect-ratio:16/11;
+  }
+  .gallery-side{
+    aspect-ratio:1;
+  }
+  @media (max-width:680px){
+    .output-gallery{ grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
+    .gallery-hero{ grid-column:1 / -1; grid-row:auto; aspect-ratio:4/3; }
+  }
 
   .wrap-up{
     background:var(--card);
@@ -191,13 +219,17 @@
 
   <header class="hero">
     <div class="eyebrow">02 · UI / UX · 3rd place</div>
-    <h1>Designathon app</h1>
-    <p class="sub">A product design built solo/with a team under a hackathon deadline — designed end-to-end in Figma, placing 3rd overall.</p>
+    <h1>Leaf Link</h1>
+    <p class="sub">A mindful workspace app for mood-based collaboration — designed in 48 hours for a CBRE-sponsored workplace wellness challenge, placing 3rd overall.</p>
 
     <div class="facts">
       <div>
         <div class="fact-label">Role</div>
-        <div class="fact-value">[Your role]</div>
+        <div class="fact-value">UI/UX designer</div>
+      </div>
+      <div>
+        <div class="fact-label">Team</div>
+        <div class="fact-value">4 people</div>
       </div>
       <div>
         <div class="fact-label">Tools</div>
@@ -212,34 +244,42 @@
 
   <section>
     <h2>The problem</h2>
-    <p class="section-note">[What was the prompt/theme of the designathon, and what problem did your app solve?]</p>
+    <p class="section-note">The challenge, sponsored by CBRE, asked teams to design a digital product reimagining workplace wellbeing for an office or commercial space — specifically tackling employee burnout, disengagement, and the lack of social connection that comes with hybrid and remote work.</p>
   </section>
 
   <section>
     <h2>Process</h2>
-    <p class="section-note">Wireframes, user flow sketches, early Figma versions — swap for real screenshots.</p>
-    <div class="process-grid">
-      <div class="thumb"><span>Wireframe</span></div>
-      <div class="thumb"><span>User flow</span></div>
-      <div class="thumb"><span>Early Figma draft</span></div>
+    <p class="section-note">The team built around a single mascot — a leaf character — designed to soften the tone of mood-tracking and make daily check-ins feel approachable rather than clinical. A small interaction detail: the leaf shifts pose on cursor hover, giving the mascot a bit of life wherever it appears in the UI.</p>
+    <div class="thumb" style="aspect-ratio:16/9;padding:0;overflow:hidden;background:#1a1a1a;">
+      <img src="images/leaflink_mascot.png" alt="Leaf Link mascot character exploration, showing hover state poses" style="width:100%;height:100%;object-fit:contain;">
     </div>
   </section>
 
   <section>
     <h2>Final output</h2>
-    <p class="section-note">Lead with your strongest screen — onboarding, home, or whichever shows your best UI work.</p>
-    <div class="thumb output-hero"><span>Main app screen</span></div>
-    <div class="output-grid">
-      <div class="thumb"><span>Screen 2</span></div>
-      <div class="thumb"><span>Screen 3</span></div>
-      <div class="thumb"><span>Screen 4</span></div>
+    <p class="section-note">The landing page sets the tone — soft sage and cream, a friendly mascot, and copy that frames the product as a mindful space rather than another productivity tracker.</p>
+    <div class="thumb" style="aspect-ratio:16/9;padding:0;overflow:hidden;margin-bottom:16px;">
+      <img src="images/leaflink_landing.png" alt="Leaf Link landing page" style="width:100%;height:100%;object-fit:cover;object-position:top;">
     </div>
+
+    <p class="section-note">Logging in leads straight to a team dashboard — productivity rings, a wellness event feed, and an AI-generated team insight from Leafy, the app's mascot-turned-assistant.</p>
+    <div class="output-gallery">
+      <div class="thumb has-img gallery-hero"><img src="images/leaflink_dashboard.png" alt="Leaf Link team dashboard" style="object-position:center top;"></div>
+      <div class="thumb has-img gallery-side" style="background:#3a3f2e;"><img src="images/leaflink_login.png" alt="Leaf Link login screen"></div>
+      <div class="thumb has-img gallery-side"><img src="images/leaflink_mood_tracker.png" alt="Leaf Link mood tracker with coworker moods panel"></div>
+    </div>
+
+    <p class="section-note" style="margin-top:24px;">Day-to-day check-ins happen through Leafy, an in-app AI chat that prompts users to reflect and helps break down a busy day into manageable tasks.</p>
+    <div class="thumb" style="aspect-ratio:21/9;padding:0;overflow:hidden;">
+      <img src="images/leaflink_chat.png" alt="Leafy AI chat screen" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+    </div>
+  </section>
   </section>
 
   <section>
     <h2>Outcome</h2>
     <div class="wrap-up">
-      <p>[What judges said, or why it placed 3rd — e.g. "Judges highlighted the onboarding flow specifically for its clarity under time pressure."]</p>
+      <p>Leaf Link placed 3rd overall. Judges responded well to the mood-tracking dashboard and the AI check-in chat, which together gave the concept a clear, demoable core loop within the 48-hour build window.</p>
     </div>
   </section>
 
